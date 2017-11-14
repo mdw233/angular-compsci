@@ -1,27 +1,18 @@
 # AngularCompsci
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
+This project exists for a few reasons:
 
-## Development server
+* I like Angular4+ and want to experiment with various parts of the framework
+* I also want to bone up on some computer science theory via some exercies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+So I'll do both at the same time.  Cool!
 
-## Code scaffolding
+# Building
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+It is an Angular4+ project using the Angular CLI.
 
-## Build
+## To Run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* clone the repo
+* `cd angular-compsci1`
+* `ng serve --open`
