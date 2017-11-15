@@ -4,30 +4,28 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { SharedModule } from './shared/shared.module';
+import { TreeDisplayComponent } from './tree/tree-display/tree-display.component';
+import { TreeModule } from './tree/tree.module';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { useHash: true }
-    ),
+    SharedModule,
+    AppRoutingModule,
+    TreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
