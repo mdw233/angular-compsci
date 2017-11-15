@@ -1,5 +1,7 @@
 export class BinaryTreeNode<T> {
-    value: T;
+    constructor(public value?: T){
+        
+    };
     left: BinaryTreeNode<T>;
     right: BinaryTreeNode<T>;
 }
