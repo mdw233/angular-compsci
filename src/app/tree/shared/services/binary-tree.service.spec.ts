@@ -64,9 +64,14 @@ describe('BinaryTreeService', () => {
     }));
   });
 
-  it("should traverse the tree in the correct order", inject([BinaryTreeService], (service: BinaryTreeService) => {
+  function getTreeWithManyItems(service: BinaryTreeService) : BinaryTree<T> {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
+    return tree;
+  };
+  
+  it("should traverse the tree in the correct order", inject([BinaryTreeService], (service: BinaryTreeService) => {
+    let tree = getTreeWithManyItems(service);
 
     let array = new Array<number>();
 
@@ -76,8 +81,7 @@ describe('BinaryTreeService', () => {
   }));
 
   it("should print the array correctly", inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
+    let tree = getTreeWithManyItems(service);
 
     let array = service.toArray(tree);
 
@@ -85,8 +89,7 @@ describe('BinaryTreeService', () => {
   }));
 
   it("should print the array string correctly", inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
+    let tree = getTreeWithManyItems(service);
 
     let array = service.toString(tree);
 
@@ -94,8 +97,7 @@ describe('BinaryTreeService', () => {
   }));
 
   it("should return the correct size", inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
+    let tree = getTreeWithManyItems(service);
 
     let size = service.size(tree);
 
