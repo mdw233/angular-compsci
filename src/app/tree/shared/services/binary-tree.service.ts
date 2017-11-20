@@ -21,12 +21,14 @@ export class BinaryTreeService {
     return found;
   }
 
-  add<T>(tree: BinaryTree<T>, ...values: Array<T>): void {
+  add<T>(tree: BinaryTree<T>, ...values: Array<T>): number {
 
+    let numAdded = 0;
     for (let value of values) {
 
       let node = new BinaryTreeNode(value);
       if (tree.root == null) {
+        numAdded ++;
         tree.root = node;
         continue;
       }
@@ -39,6 +41,7 @@ export class BinaryTreeService {
           if (current.left == null) {
             //if there is no left - hey that's our spot!
             current.left = node;
+            numAdded ++;
             break;
           } else {
             //if there is a left we need to keep going
@@ -48,6 +51,7 @@ export class BinaryTreeService {
           if (current.right == null) {
             //if there is no right - well pardner, we'll take it
             current.right = node;
+            numAdded ++;
             break;
           } else {
             current = current.right;
@@ -58,6 +62,7 @@ export class BinaryTreeService {
       }
     }
   
+    return numAdded;
   }
 
   traverse<T>(tree: BinaryTree<T>, process: (node: BinaryTreeNode<T>) => void) {

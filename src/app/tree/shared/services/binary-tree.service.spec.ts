@@ -15,51 +15,56 @@ describe('BinaryTreeService', () => {
     expect(service).toBeTruthy();
   }));
 
+  describe("when adding elements to the array", () => {
 
-  it('contains should return false when the element does not exist', inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    let result = service.contains(tree, 4);
+    it('a single item should be added correctly', inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let tree = new BinaryTree<number>();
+      let numAdded = service.add(tree, 3);
 
-    expect(result).toBe(false);
-  }));
+      expect(numAdded).toEqual(1);
+    }));
 
-  it('contains should return false when the element does not exist', inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 4);
-    service.add(tree, 9);
-    service.add(tree, 21);
+    it('a list of items should be added corectly', inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let tree = new BinaryTree<number>();
+      let numAdded = service.add(tree, 7, 9, 1, 19, 31, 4);
 
-    let result = service.contains(tree, 8);
-    expect(result).toBe(false);
-  }));
+      expect(numAdded).toEqual(6);
+    }));
+  });
+
+
+
+  describe("when checking to see if the tree contains an item", () => {
+    
+    it('an empty tree should always return false', inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let tree = new BinaryTree<number>();
+      let result = service.contains(tree, 4);
   
-  it('contains should return true when the element does exist', inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 4);
-    service.add(tree, 9);
-    service.add(tree, 21);
-
-    let result = service.contains(tree, 9);
-    expect(result).toBe(true);
-  }));
-
-  it('adding should not fail', inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 3);
-    let result = service.contains(tree, 3);
-
-    expect(result).toBe(true);
-  }));
+      expect(result).toBe(false);
+    }));
   
-  it('adding via array should work', inject([BinaryTreeService], (service: BinaryTreeService) => {
-    let tree = new BinaryTree<number>();
-    service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
-    let result = service.contains(tree, 1);
-
-    expect(result).toBe(true);
-  }));
+    it('a tree with items, but none that match, should return false', inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let tree = new BinaryTree<number>();
+      service.add(tree, 4);
+      service.add(tree, 9);
+      service.add(tree, 21);
   
-  it("should traverse the tree correctly", inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let result = service.contains(tree, 8);
+      expect(result).toBe(false);
+    }));
+  
+    it('a tree with a matching items should return true', inject([BinaryTreeService], (service: BinaryTreeService) => {
+      let tree = new BinaryTree<number>();
+      service.add(tree, 4);
+      service.add(tree, 9);
+      service.add(tree, 21);
+  
+      let result = service.contains(tree, 9);
+      expect(result).toBe(true);
+    }));
+  });
+
+  it("should traverse the tree in the correct order", inject([BinaryTreeService], (service: BinaryTreeService) => {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
 
@@ -67,18 +72,18 @@ describe('BinaryTreeService', () => {
 
     service.traverse(tree, (node: BinaryTreeNode<number>) => { array.push(node.value) });
 
-    expect(array).toEqual([1,4,7,8,9,12,19,25,31]);
+    expect(array).toEqual([1, 4, 7, 8, 9, 12, 19, 25, 31]);
   }));
-  
+
   it("should print the array correctly", inject([BinaryTreeService], (service: BinaryTreeService) => {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
 
     let array = service.toArray(tree);
 
-    expect(array).toEqual([1,4,7,8,9,12,19,25,31]);
+    expect(array).toEqual([1, 4, 7, 8, 9, 12, 19, 25, 31]);
   }));
-  
+
   it("should print the array string correctly", inject([BinaryTreeService], (service: BinaryTreeService) => {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
@@ -87,7 +92,7 @@ describe('BinaryTreeService', () => {
 
     expect(array).toEqual("1,4,7,8,9,12,19,25,31");
   }));
-  
+
   it("should return the correct size", inject([BinaryTreeService], (service: BinaryTreeService) => {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
