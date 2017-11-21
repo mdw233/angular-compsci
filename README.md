@@ -7,12 +7,13 @@ This project exists for a few reasons:
 
 So I'll do both at the same time.  Cool!
 
-# Building
+# Installing Angular CLI
 
-It is an Angular4+ project using the Angular CLI.
+Follow the latest install instructions on the [Angular CLI Github](https://github.com/angular/angular-cli).
 
-## To Run
+## To Build and Run
 
 * clone the repo
 * `cd angular-compsci1`
+* `npm install`
 * `ng serve --open`
