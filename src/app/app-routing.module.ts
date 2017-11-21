@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './shared/components/page-not-found/page-n
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'tree', component: TreeDisplayComponent },
+  { path: 'binary-tree', component: TreeDisplayComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

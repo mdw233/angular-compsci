@@ -29,5 +29,8 @@ export class TreeDisplayComponent implements OnInit {
 
   onSubmit() {
     this.btService.add(this.tree, this.treeForm.value.numberToAdd);
+    this.treeForm.patchValue({
+      numberToAdd: ""
+    });
   }
 }
