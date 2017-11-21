@@ -11,6 +11,7 @@ import { TreeDisplayComponent } from './tree/tree-display/tree-display.component
 import { TreeModule } from './tree/tree.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,9 +23,10 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     FooterComponent,
   ],
   imports: [
-    BrowserModule,
-    SharedModule,
     AppRoutingModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    SharedModule,
     TreeModule,
   ],
   providers: [],
