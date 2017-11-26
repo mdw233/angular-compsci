@@ -12,6 +12,7 @@ import { TreeModule } from './tree/tree.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SimpleSvgComponent } from './drawing/simple-svg/simple-svg.component';
 
 
 
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    SimpleSvgComponent,
   ],
   imports: [
     AppRoutingModule,
