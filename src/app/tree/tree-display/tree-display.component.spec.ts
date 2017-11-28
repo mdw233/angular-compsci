@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TreeDisplayComponent } from './tree-display.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BinaryTreeService } from '../shared/services/binary-tree.service';
 
 describe('TreeDisplayComponent', () => {
   let component: TreeDisplayComponent;
@@ -8,7 +10,9 @@ describe('TreeDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TreeDisplayComponent ]
+      providers: [BinaryTreeService],
+      declarations: [ TreeDisplayComponent ],
+      imports: [ReactiveFormsModule]
     })
     .compileComponents();
   }));

@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
+import { ConsoleService } from './console.service';
 
-import { ConsoleServiceService } from './console-service.service';
 
 describe('ConsoleService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ConsoleServiceService]
+      providers: [ConsoleService]
     });
   });
 
-  it('should be created', inject([ConsoleServiceService], (service: ConsoleServiceService) => {
+  it('should be created', inject([ConsoleService], (service: ConsoleService) => {
     expect(service).toBeTruthy();
   }));
 });

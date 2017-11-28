@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SimpleSvgComponent } from './simple-svg.component';
+import { ConsoleService } from '../../shared/services/console.service';
 
 describe('SimpleSvgComponent', () => {
   let component: SimpleSvgComponent;
@@ -8,7 +9,8 @@ describe('SimpleSvgComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SimpleSvgComponent ]
+      declarations: [ SimpleSvgComponent],
+      providers: [ConsoleService]
     })
     .compileComponents();
   }));

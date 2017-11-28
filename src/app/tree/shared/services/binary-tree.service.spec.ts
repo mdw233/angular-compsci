@@ -9,6 +9,7 @@ describe('BinaryTreeService', () => {
     TestBed.configureTestingModule({
       providers: [BinaryTreeService]
     });
+    console.log("xxxxxxx");
   });
 
   it('should be created', inject([BinaryTreeService], (service: BinaryTreeService) => {
@@ -64,7 +65,7 @@ describe('BinaryTreeService', () => {
     }));
   });
 
-  function getTreeWithManyItems(service: BinaryTreeService) : BinaryTree<T> {
+  function getTreeWithManyItems(service: BinaryTreeService) : BinaryTree<number> {
     let tree = new BinaryTree<number>();
     service.add(tree, 7, 9, 1, 8, 12, 25, 19, 31, 4);
     return tree;
