@@ -33,4 +33,8 @@ export class TreeDisplayComponent implements OnInit {
       numberToAdd: ""
     });
   }
+
+  toArray() {
+    return this.btService.toArray(this.tree);
+  }
 }
