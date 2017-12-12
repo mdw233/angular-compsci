@@ -1,15 +1,13 @@
-class AdjacencyMatrixGraph extends Graph {
+import { Graph } from "./graph.model";
+
+export class AdjacencyMatrixGraph extends Graph {
 
     private matrix: number[][];
 
     constructor(numVerticies: number, directed: boolean = false) {
         super(numVerticies, directed);
 
-        for(let i = 0; i < numVerticies; i++) {
-            for(let j = 0; j < numVerticies; j++) {
-                this.matrix[i][j] = 0;
-            }
-        }
+        this.matrix = this.createEmptyMatrix(numVerticies);
     }
 
     private throwRangeError() {
